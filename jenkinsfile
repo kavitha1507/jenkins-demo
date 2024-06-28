@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    
+  stages {
+        stage('Welcome') { 
+            steps {
+                echo 'Hi , You are inside the pipeline'
+            }
+        }
+    stage('Deploy') {
+
+            steps {
+
+                script {
+
+                    docker.image('hello-world-app').run()
+
+                }
+            }        
+    }
+}   
